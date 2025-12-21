@@ -5,14 +5,17 @@
     <title>SANCTUM VERITATIS // Ordo da Verdade Velada</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
     <!-- FONTES E ÍCONES -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 
     <!-- ÁUDIO AMBIENTE -->
     <audio id="bg-audio" loop>
         <source src="https://cdn.pixabay.com/download/audio/2021/09/01/audio_1f8b9b0488.mp3?filename=dark-ambient-background-9822.mp3" type="audio/mpeg">
     </audio>
+
 
     <style>
         :root {
@@ -25,9 +28,13 @@
             --gold-soft: rgba(216,180,106,0.18);
             --crimson: #7a0b24;
             --border: rgba(255,255,255,0.08);
+            --ice-blue: #a8d8ea;
+            --frost: rgba(168,216,234,0.15);
         }
 
+
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
 
         body {
             background: radial-gradient(circle at top, #141217 0%, #050509 40%, #000 90%);
@@ -36,9 +43,11 @@
             overflow-x: hidden;
         }
 
+
         .serif { font-family: 'Cinzel', serif; }
         .mono { font-family: 'Share Tech Mono', monospace; }
         .italic { font-family: 'Playfair Display', serif; font-style: italic; }
+
 
         /* TEXTURAS */
         .noise {
@@ -49,6 +58,7 @@
             position: fixed; inset: 0; z-index: 0; pointer-events: none;
             background: radial-gradient(circle at center, transparent 40%, #000 90%);
         }
+
 
         /* PARTÍCULAS FLUTUANTES */
         .particles {
@@ -68,6 +78,7 @@
             100% { transform: translateY(-100px) translateX(30px); opacity: 0; }
         }
 
+
         /* === CAPA DE ENTRADA === */
         #cover {
             position: fixed; inset: 0; z-index: 9999;
@@ -76,6 +87,7 @@
             transition: opacity 1.2s ease, visibility 1.2s ease;
         }
         #cover.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
 
         .cover-seal {
             width: 150px; height: 150px;
@@ -100,6 +112,7 @@
             text-shadow: 0 0 20px rgba(216,180,106,0.8);
         }
 
+
         .cover-title {
             margin-top: 2.5rem; font-size: 2.2rem; text-transform: uppercase; letter-spacing: 6px;
             animation: fadeIn 2s ease-in-out;
@@ -113,6 +126,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+
         .cover-btn {
             margin-top: 3rem; padding: 1rem 3rem;
             border: 1px solid var(--gold); background: transparent; color: var(--gold);
@@ -125,6 +139,7 @@
             box-shadow: 0 0 50px rgba(216,180,106,0.7);
             transform: scale(1.05);
         }
+
 
         /* HEADER */
         header {
@@ -141,6 +156,7 @@
             from { opacity: 0; transform: translateY(-100%); }
             to { opacity: 1; transform: translateY(0); }
         }
+
 
         .brand {
             display: flex; align-items: center; gap: 1rem; cursor: pointer;
@@ -173,6 +189,7 @@
             font-size: 0.7rem; text-transform: uppercase; color: var(--muted); letter-spacing: 3px;
         }
 
+
         nav a {
             margin-left: 1.8rem; font-size: 0.8rem; text-decoration: none;
             color: var(--muted); text-transform: uppercase; letter-spacing: 2px;
@@ -191,6 +208,7 @@
         nav a.primary-cta:hover {
             background: var(--gold); color: #050509; box-shadow: 0 0 30px rgba(216,180,106,0.35);
         }
+
 
         /* HERO */
         .hero {
@@ -212,6 +230,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+
         .pillar-bg {
             position: absolute; inset: 0; z-index: -3;
             background-image: url('https://images.unsplash.com/photo-1529424301806-4be0bb154e3b?q=80&w=1800&auto=format&fit=crop');
@@ -224,6 +243,7 @@
             from { transform: scale(1) translateY(0); }
             to { transform: scale(1.1) translateY(-20px); }
         }
+
 
         .hero-panel {
             background: radial-gradient(circle at top, rgba(24,22,30,0.9), rgba(6,6,10,0.98));
@@ -245,6 +265,7 @@
         .hero-panel:hover::before { top: -15px; left: -15px; }
         .hero-panel:hover::after { bottom: -15px; right: -15px; }
 
+
         .hero-kicker {
             font-size: 0.8rem; color: var(--muted); letter-spacing: 4px;
             text-transform: uppercase; margin-bottom: 1rem;
@@ -260,6 +281,7 @@
             font-size: 0.95rem; color: var(--muted); margin-bottom: 2rem;
         }
         .hero-quote em { color: var(--gold); }
+
 
         .hero-actions {
             display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;
@@ -283,6 +305,7 @@
             box-shadow: 0 0 40px rgba(216,180,106,0.5);
         }
 
+
         .hero-secondary {
             border: 1px solid #3b342c; padding: 0.9rem 1.7rem;
             color: var(--muted);
@@ -291,6 +314,7 @@
         .hero-secondary:hover {
             border-color: var(--gold); color: var(--text);
         }
+
 
         .hero-audio {
             display: flex; align-items: center; gap: 0.7rem; margin-top: 1.4rem;
@@ -312,6 +336,7 @@
             50% { transform: scale(1.1); }
         }
 
+
         .hero-aside {
             background: linear-gradient(145deg, rgba(8,7,10,0.95), rgba(10,6,8,0.98));
             border: 1px solid var(--border);
@@ -321,6 +346,7 @@
             transition: 0.4s;
         }
         .hero-aside:hover { box-shadow: 0 30px 80px rgba(0,0,0,1); transform: translateY(-8px); }
+
 
         .seal {
             width: 90px; height: 90px;
@@ -359,7 +385,8 @@
         }
         .aside-link:hover { text-decoration: underline; color: #fff; }
 
-        /* SEÇÃO OPERAÇÃO EM DESTAQUE */
+
+        /* SEÇÃO OPERAÇÕES EM DESTAQUE */
         .section {
             padding: 4rem 2rem 5rem 2rem;
             max-width: 1200px;
@@ -374,8 +401,10 @@
         }
         .section-header p { font-size: 0.85rem; color: var(--muted); }
 
+
         .feature-grid {
-            display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem;
+            margin-bottom: 3rem;
         }
         .feature-card {
             background: linear-gradient(135deg, rgba(15,13,18,0.98), rgba(8,7,10,0.98));
@@ -386,8 +415,9 @@
         }
         .feature-card:hover { transform: translateY(-10px); box-shadow: 0 30px 80px rgba(0,0,0,1); }
 
+
         .feature-img {
-            height: 260px; background-size: cover; background-position: center;
+            height: 240px; background-size: cover; background-position: center;
             filter: grayscale(100%) contrast(1.2); transition: 0.6s;
             position: relative; overflow: hidden;
         }
@@ -397,6 +427,7 @@
         }
         .feature-card:hover .feature-img { filter: grayscale(0%) contrast(1.05); }
 
+
         .feature-body { padding: 2rem; position: relative; }
         .feature-tag {
             position: absolute; top: -13px; right: 2rem;
@@ -404,11 +435,21 @@
             color: var(--gold); font-size: 0.68rem; padding: 0.25rem 0.7rem;
             text-transform: uppercase; letter-spacing: 2px;
         }
-        .feature-body h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+        .feature-tag.urgent {
+            border-color: #ff4444;
+            color: #ff4444;
+            animation: urgentPulse 2s ease-in-out infinite;
+        }
+        @keyframes urgentPulse {
+            0%, 100% { box-shadow: 0 0 10px rgba(255,68,68,0.3); }
+            50% { box-shadow: 0 0 20px rgba(255,68,68,0.6); }
+        }
+        .feature-body h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
         .feature-meta {
             font-size: 0.8rem; color: var(--muted); margin-bottom: 1.2rem;
         }
         .feature-body p { font-size: 0.9rem; color: #c5bdad; margin-bottom: 1.8rem; }
+
 
         .feature-btn {
             display: inline-block; padding: 0.7rem 1.8rem;
@@ -427,6 +468,7 @@
             color: #050509;
             box-shadow: 0 0 30px rgba(216,180,106,0.5);
         }
+
 
         .founders-panel {
             border: 1px solid var(--border);
@@ -448,6 +490,7 @@
         }
         .founders-panel a:hover { text-decoration: underline; color: #fff; }
 
+
         /* STATS SECTION */
         .stats-section {
             padding: 5rem 2rem;
@@ -468,6 +511,7 @@
             font-size: 0.85rem; color: var(--muted); text-transform: uppercase; letter-spacing: 2px;
         }
 
+
         /* RODAPÉ */
         footer {
             border-top: 1px solid #111;
@@ -476,6 +520,7 @@
             color: #5a5447;
             text-align: center;
         }
+
 
         @media (max-width: 960px) {
             header { padding: 1rem 1.4rem; }
@@ -489,11 +534,14 @@
 </head>
 <body>
 
+
 <div class="noise"></div>
 <div class="vignette"></div>
 
+
 <!-- PARTÍCULAS FLUTUANTES -->
 <div class="particles" id="particles"></div>
+
 
 <!-- CAPA DE ENTRADA -->
 <div id="cover">
@@ -502,6 +550,7 @@
     <p class="cover-subtitle mono">Ordo da Verdade Velada</p>
     <button class="cover-btn" id="enterBtn">Atravessar o Véu</button>
 </div>
+
 
 <header>
     <div class="brand" id="crestTrigger">
@@ -520,6 +569,7 @@
     </nav>
 </header>
 
+
 <section class="hero">
     <div class="pillar-bg"></div>
     <div class="hero-inner">
@@ -535,16 +585,19 @@
                 É um lugar para quem quer carregar cicatrizes narrativas.
             </p>
 
+
             <div class="hero-actions">
                 <a href="setentrional2.html" class="hero-btn">Entrar na Operação Setentrional</a>
                 <a href="fundadores.html" class="hero-btn hero-secondary">Conhecer o Alto Conselho</a>
             </div>
+
 
             <div class="hero-audio mono">
                 <div id="audioToggle" class="audio-toggle"><i class="fas fa-play"></i></div>
                 <span>Tema ambiente do Sanctum</span>
             </div>
         </div>
+
 
         <aside class="hero-aside">
             <div class="seal"><span>Ω</span></div>
@@ -559,17 +612,19 @@
     </div>
 </section>
 
+
 <section class="section">
     <div class="section-header">
         <div>
-            <h2 class="serif">Operação em Destaque</h2>
-            <p>Setentrional é a primeira cicatriz aberta sob a guarda do Sanctum Veritatis.</p>
+            <h2 class="serif">Operações em Andamento</h2>
+            <p>Duas cicatrizes abertas sob a guarda do Sanctum Veritatis.</p>
         </div>
         <div class="mono" style="font-size:0.8rem; color:var(--muted); text-align:right;">
-            OPERAÇÕES ATIVAS: 01<br>
-            NOVAS LINHAS: SOB ANÁLISE
+            OPERAÇÕES ATIVAS: 02<br>
+            URGÊNCIA: NÍVEIS VARIADOS
         </div>
     </div>
+
 
     <div class="feature-grid">
         <article class="feature-card">
@@ -579,8 +634,7 @@
                 <h3 class="serif">Ilha de São Firmo</h3>
                 <div class="feature-meta mono">
                     <span><i class="fas fa-user-secret"></i> Mestre: Corvo</span> ·
-                    <span>Formato: Campanha Longa</span> ·
-                    <span>Plataforma: Tabletop Simulator</span>
+                    <span>Formato: Campanha Longa</span>
                 </div>
                 <p>
                     Um farol esquecido. Uma ilha que insiste em existir em mapas diferentes, com datas que não batem.
@@ -591,20 +645,40 @@
             </div>
         </article>
 
-        <aside class="founders-panel">
-            <h3 class="mono">O Conselho por Trás do Véu</h3>
-            <p>
-                Quatro fundadores administram o Sanctum Veritatis: Corvo, Mariposa, Noir e EpicGrail. 
-                Cada um traz especialidades diferentes – de política sombria e drama pessoal a engenharia de sistemas 
-                complexos e terror cósmico.
-            </p>
-            <p>
-                Juntos, eles garantem que cada mesa tenha começo, meio e fim, sem abandonar agentes no meio do abismo.
-            </p>
-            <a href="fundadores.html" class="mono">Ver Arquivo dos Fundadores</a>
-        </aside>
+        <article class="feature-card">
+            <div class="feature-img" style="background-image:url('https://images.unsplash.com/photo-1483347756197-71ef80e95f73?q=80&w=1400&auto=format&fit=crop'); filter: brightness(0.7) saturate(0.8) contrast(1.3);"></div>
+            <div class="feature-body">
+                <span class="feature-tag urgent mono">URGENTE</span>
+                <h3 class="serif">Aurora de Vidro</h3>
+                <div class="feature-meta mono">
+                    <span><i class="fas fa-snowflake"></i> Status: Falha de Comunicação</span> ·
+                    <span>Prioridade: ALTA</span>
+                </div>
+                <p>
+                    Base de pesquisa no Círculo Polar Ártico. 17 pesquisadores. Última transmissão há 72 horas.
+                    O silêncio é absoluto. O gelo não revela seus segredos facilmente. Sanctum precisa de agentes
+                    experientes para investigação imediata.
+                </p>
+                <a href="auroradevidro.html" class="feature-btn">Responder ao Chamado</a>
+            </div>
+        </article>
     </div>
+
+
+    <aside class="founders-panel">
+        <h3 class="mono">O Conselho por Trás do Véu</h3>
+        <p>
+            Quatro fundadores administram o Sanctum Veritatis: Corvo, Mariposa, Noir e EpicGrail. 
+            Cada um traz especialidades diferentes – de política sombria e drama pessoal a engenharia de sistemas 
+            complexos e terror cósmico.
+        </p>
+        <p>
+            Juntos, eles garantem que cada mesa tenha começo, meio e fim, sem abandonar agentes no meio do abismo.
+        </p>
+        <a href="fundadores.html" class="mono">Ver Arquivo dos Fundadores</a>
+    </aside>
 </section>
+
 
 <section class="stats-section">
     <div class="stats-grid">
@@ -613,8 +687,8 @@
             <p>Fundadores</p>
         </div>
         <div class="stat-item">
-            <h3 class="mono">01</h3>
-            <p>Operação Principal</p>
+            <h3 class="mono">02</h3>
+            <p>Operações Ativas</p>
         </div>
         <div class="stat-item">
             <h3 class="mono">∞</h3>
@@ -622,6 +696,7 @@
         </div>
     </div>
 </section>
+
 
 <footer>
     <p class="mono">SANCTUM VERITATIS © 2025 // ORDO DA VERDADE VELADA</p>
@@ -631,6 +706,7 @@
     </p>
 </footer>
 
+
 <script>
     // CAPA DE ENTRADA
     const cover = document.getElementById('cover');
@@ -638,6 +714,7 @@
     enterBtn.addEventListener('click', () => {
         cover.classList.add('hidden');
     });
+
 
     // PARTÍCULAS FLUTUANTES
     const particlesContainer = document.getElementById('particles');
@@ -650,10 +727,12 @@
         particlesContainer.appendChild(particle);
     }
 
+
     // ÁUDIO AMBIENTE
     const audioEl = document.getElementById('bg-audio');
     const audioToggle = document.getElementById('audioToggle');
     let audioPlaying = false;
+
 
     audioToggle.addEventListener('click', () => {
         if (!audioPlaying) {
@@ -672,12 +751,14 @@
         }
     });
 
+
     audioEl.addEventListener('ended', () => {
         audioPlaying = false;
         audioToggle.classList.remove('active');
         audioToggle.querySelector('i').classList.remove('fa-pause');
         audioToggle.querySelector('i').classList.add('fa-play');
     });
+
 
     // ACESSO OCULTO AO SETOR 973
     const crest = document.getElementById('crestTrigger');
@@ -690,6 +771,7 @@
         lastClick = now;
     });
 </script>
+
 
 </body>
 </html>
