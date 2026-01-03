@@ -1300,14 +1300,16 @@ const HackingGame = {
                 grid.appendChild(cell);
             }
             
-            // Generate correct sequence (diagonal pattern)
+            // Generate correct sequence (horizontal)
             this.correctSequence = [];
+            const row = Math.floor(Math.random() * 8); // 0..7
+            const startCol = Math.floor(Math.random() * (8 - sequenceLength + 1)); // garante caber
             for (let i = 0; i < sequenceLength; i++) {
-                const index = i * 9; // Diagonal: 0, 9, 18, 27, 36, 45, 54, 63
-                if (index < 64) {
-                    this.correctSequence.push(this.codes[index]);
-                }
+                const col = startCol + i;
+                const index = row * 8 + col;
+                this.correctSequence.push(this.codes[index]);
             }
+
             
             // Timer
             let timeLeft = this.timeLimit;
